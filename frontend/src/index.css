@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-gray-100;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .metric-card {
+    @apply relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-md 
+           rounded-2xl p-6 border border-gray-700/60 
+           hover:border-primary-500/70 transition-all duration-500 
+           shadow-lg hover:shadow-2xl hover:shadow-primary-500/20
+           cursor-pointer;
+  }
+  
+  .metric-card:hover {
+    @apply transform -translate-y-2 scale-[1.02];
+  }
+  
+  .chart-container {
+    @apply bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl 
+           rounded-2xl p-6 border border-gray-700/50 
+           hover:border-primary-500/50 transition-all duration-500
+           shadow-xl hover:shadow-2xl hover:shadow-primary-500/10;
+  }
+  
+  .chart-container:hover {
+    @apply transform scale-[1.01];
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-500 via-purple-500 to-secondary-500 
+           bg-clip-text text-transparent animate-gradient;
+  }
+  
+  .btn-primary {
+    @apply relative bg-gradient-to-r from-primary-500 to-secondary-500 
+           text-white font-semibold py-3 px-8 rounded-lg 
+           transition-all duration-300
+           shadow-lg hover:shadow-2xl hover:shadow-primary-500/50
+           hover:scale-105 active:scale-95;
+  }
+  
+  .btn-primary:hover {
+    @apply brightness-110;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-800/80 backdrop-blur-sm text-white font-semibold 
+           py-3 px-6 rounded-lg 
+           border border-gray-700/80
+           transition-all duration-300
+           shadow-md hover:shadow-lg hover:shadow-gray-700/50
+           hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary:hover {
+    @apply border-primary-500/80 bg-gray-700/80;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a67d8;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 3s ease infinite;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
